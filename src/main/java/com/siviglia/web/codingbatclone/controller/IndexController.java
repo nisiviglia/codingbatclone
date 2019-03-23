@@ -22,4 +22,10 @@ public class IndexController{
         model.addAttribute("message", message);
         return "index";
     }
+
+    @RequestMapping(value={"/about"}, method= RequestMethod.GET)
+    public String about(Model model){
+         
+        return "about";
+    }
 }
