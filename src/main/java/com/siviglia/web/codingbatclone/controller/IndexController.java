@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 @Controller
 public class IndexController{
     
-    @Value("${welcome.message}")
+    @Value("${about.message}")
     private String message;
 
     @Value("${error.message}")
@@ -19,13 +19,13 @@ public class IndexController{
     @RequestMapping(value={"/", "/index"}, method= RequestMethod.GET)
     public String index(Model model){
         
-        model.addAttribute("message", message);
         return "index";
     }
 
     @RequestMapping(value={"/about"}, method= RequestMethod.GET)
     public String about(Model model){
-         
+        
+        model.addAttribute("message", message);
         return "about";
     }
 }

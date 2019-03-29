@@ -2,11 +2,32 @@
 <html xmlns:th="http://www.thymeleaf.org">
    <head>
       <meta charset="UTF-8" />
-      <title>Welcome</title>
+      <title>CodingBat Clone</title>
       <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
    </head>
    <body>
-      <h1>Welcome</h1>
+       <div class="header">
+            <div id="left">
+                <a href=/><span style='font-size:200%;'>CodingBat</span></a> clone
+                <br>
+            </div>
+            <div id="right">
+                <a href=/about><span>About</span></a> 
+            </div>
+            <hr />
+       </div>
+
+       <div id="disc">
+            <a>List of assorted problems below</a>
+       </div>
+
+       <div class="questions">  
+            <ul>
+                <li th:each="q : ${questions}">
+                    <a th:href="@{/question/${q.title}}" th:text="${q.title}">title</a>
+                </li>      
+            </ul>
+       </div>
    </body>
     
 </html>
