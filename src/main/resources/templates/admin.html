@@ -1,0 +1,67 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+	<title>Admin</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
+</head>
+<body>
+<h1>Admin</h1>
+
+<table border="1" cellpadding="1" cellspacing="1" style="width: 95%;">
+	<thead>
+		<tr>
+			<th scope="col"><u>Id</u></th>
+			<th scope="col"><u>Date</u></th>
+			<th scope="col"><u>Title</u></th>
+			<th scope="col"><u>Discription</u></th>
+			<th scope="col"><u>Text</u></th>
+			<th scope="col"><u>Test Cases</u></th>
+			<th scope="col"><u>Visible</u></th>
+			<th scope="col">Options</th>
+		</tr>
+	</thead>
+	<tbody th:each="q : ${questions}">
+		<tr>
+			<td th:text="${q.id}">&nbsp;</td>
+			<td th:text="${q.date}">&nbsp;</td>
+			<td th:text="${q.title}">&nbsp;</td>
+			<td th:text="${q.discription}">&nbsp;</td>
+			<td th:text="${q.text}">&nbsp;</td>
+			<td th:text="${q.testCases}">&nbsp;</td>
+			<td th:text="${q.visible}">&nbsp;</td>
+			<td>&nbsp;</td>
+		</tr>
+	</tbody>
+</table>
+
+<p style="text-align: center;">
+    <a th:href="@{/admin/{page}(page=${page == 0} ? 0 : ${page}-1)}" class="button">Prev</a>
+    <a th:href="@{/admin/{page}(page=${page}+1)}" class="button">Next</a>
+</p>
+
+<h2>Add Question</h2>
+
+<form name="NewQuestionForm">
+	<p>Title:<br />
+	<input maxlength="255" name="NewQuestionTitle" size="50" type="text" /><br />
+
+	Discription:<br />
+	<input maxlength="255" name="NewQuestionDiscription" size="50" type="text" /><br />
+
+	Function Name:<br />
+	<textarea cols="50" name="NewQuestionText" rows="10"></textarea><br />
+
+	Test Cases: <span style="font-size:9px;">(seperate by commas)</span><br />
+	<input maxlength="255" name="NewQuestionTestCases" size="50" type="text" /><br />
+
+	Visible:<br />
+	<input checked="checked" name="NewQuestionVisible" type="checkbox" />&nbsp;</p>
+
+	<p><input name="NewQuestionSubmitBtn" type="submit" value="Submit" /></p>
+</form>
+
+<p>&nbsp;</p>
+</body>
+</html>
+
