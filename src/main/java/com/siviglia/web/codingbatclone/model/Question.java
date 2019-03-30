@@ -23,6 +23,7 @@ public class Question{
     private long date;
 
     @Basic(optional = false)
+    @Column(name = "title",unique=true, nullable = false)
     private String title;
 
     @Basic(optional = false)

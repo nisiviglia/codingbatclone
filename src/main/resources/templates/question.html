@@ -6,8 +6,19 @@
       <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
    </head>
    <body>
-      <h1>Question</h1>
-      <a href=/><span style='font-size:200%;'>CodingBat</span></a> code practice
+        <a href="/"><span style='font-size:200%;'>CodingBat</span></a> code practice
+        <ul>
+            <li th:text="${question.title}"></li>      
+            <li th:text="${question.date}"></li>      
+            <li th:text="${question.discription}"></li>      
+            <li th:text="${question.text}"></li>      
+        </ul>
+        <div>
+            <h4>Test Cases</h4>
+            <ul th:each="testCase : ${question.testCases}">
+                <li th:text="${testCase}"></li>
+            </ul>
+        </div>
    </body>
     
 </html>

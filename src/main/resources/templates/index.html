@@ -22,9 +22,9 @@
        </div>
 
        <div class="questions">  
-            <ul>
-                <li th:each="q : ${questions}">
-                    <a th:href="@{/question/${q.title}}" th:text="${q.title}">title</a>
+            <ul th:each="q : ${questions}">
+                <li>
+                    <a th:href="@{/quest/{title}(title=${q.title})}" th:text="${q.title}">title</a>
                 </li>      
             </ul>
        </div>
