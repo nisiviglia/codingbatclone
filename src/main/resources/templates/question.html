@@ -7,17 +7,32 @@
    </head>
    <body>
         <a href="/"><span style='font-size:200%;'>CodingBat</span></a> code practice
-        <ul>
-            <li th:text="${question.title}"></li>      
-            <li th:text="${question.date}"></li>      
-            <li th:text="${question.discription}"></li>      
-            <li th:text="${question.text}"></li>      
-        </ul>
-        <div>
-            <h4>Test Cases</h4>
-            <ul th:each="testCase : ${question.testCases}">
-                <li th:text="${testCase}"></li>
-            </ul>
+        <h2 th:text="${question.title}"></h2>
+        <br>
+        <p th:text="${question.discription}"></p>
+        <div class="workBox">
+            <div class="codeBox">
+                <a th:href="@{#}" class="button">Run</a>
+                <textarea cols="50" id="QuestionText" rows="10" th:text="${question.text}"></textarea>        
+            </div>
+            <div class="testBox">
+                <table border="1" cellpadding="1" cellspacing="1" style="width: 35;">
+                    <thead>
+                        <tr>
+                            <th scope="col"><u>Expected</u></th>
+                            <th scope="col"><u>Run</u></th>
+                            <th scope="col"><u></u></th>
+                        </tr>
+                    </thead>
+                    <tbody th:each="testCase : ${question.testCases}">
+                        <tr>
+                            <td th:text="${testCase}">&nbsp;</td>
+                            <td th:text="${testCase}">&nbsp;</td>
+                            <td th:text="${(testCase == testCase) ? 1 : 0}">&nbsp;</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
    </body>
     

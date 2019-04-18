@@ -24,10 +24,16 @@
        <div class="questions">  
             <ul th:each="q : ${questions}">
                 <li>
-                    <a th:href="@{/quest/{title}(title=${q.title})}" th:text="${q.title}">title</a>
+                    <a th:href="@{/question/title/{title}(title=${q.title})}" th:text="${q.title}">title</a>
                 </li>      
             </ul>
        </div>
+       <p style="text-align: center;">
+            <a th:if="${not isFirstPage == true}"
+                th:href="@{/index/?page={page}(page=${page}-1)}" class="button">Prev</a>
+            <a th:if="${not isLastPage == true}"
+                th:href="@{/index/?page={page}(page=${page}+1)}" class="button">Next</a>
+       </p>
    </body>
     
 </html>
