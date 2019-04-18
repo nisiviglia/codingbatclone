@@ -21,7 +21,7 @@
 	<textarea th:text="${question?.text}" cols="50" autocomplete="off" name="text" rows="10"></textarea><br />
 
 	Test Cases: <span style="font-size:9px;">(seperate by commas)</span><br />
-    <input th:value="${question.testCases}" maxlength="255" autocomplete="off" name="testCasesStr" size="50" type="text" /><br />
+    <input th:value="${question?.testCases}" maxlength="255" autocomplete="off" name="testCasesStr" size="50" type="text" /><br />
 
 	Visible:<br />
 	<input th:checked="${question?.visible}" name="visible" autocomplete="off" type="checkbox" />&nbsp;</p>
