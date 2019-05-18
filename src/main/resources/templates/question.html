@@ -6,16 +6,29 @@
       <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
    </head>
    <body>
-        <a href="/"><span style='font-size:200%;'>CodingBat</span></a> code practice
-        <h2 th:text="${question.title}"></h2>
-        <br>
-        <p th:text="${question.discription}"></p>
-        <div class="workBox">
-            <div class="codeBox">
-                <a th:href="@{#}" class="button">Run</a>
+       <div class="header">
+            <div id="header-left">
+                <a href=/><span style='font-size:200%;'>CodingBat</span></a> clone
+                <br>
+            </div>
+            <div id="header-right">
+                <a href=/about><span>About</span></a> 
+            </div>
+       </div>
+       <hr />
+
+       <div class="question-info">
+            <h2 th:text="${question.title}"></h2>
+            <br>
+            <p th:text="${question.discription}"></p>
+       </div>
+
+        <div class="workbox">
+            <div class="codebox">
                 <textarea cols="50" id="QuestionText" rows="10" th:text="${question.text}"></textarea>        
             </div>
-            <div class="testBox">
+
+            <div class="testbox">
                 <table border="1" cellpadding="1" cellspacing="1" style="width: 35;">
                     <thead>
                         <tr>
@@ -33,7 +46,10 @@
                     </tbody>
                 </table>
             </div>
+
         </div>
+        <a th:href="@{#}" class="button">Run</a>
+
    </body>
     
 </html>

@@ -7,23 +7,24 @@
    </head>
    <body>
        <div class="header">
-            <div id="left">
+                <a th:href="@{#}" class="button">Run</a>
+            <div id="header-left">
                 <a href=/><span style='font-size:200%;'>CodingBat</span></a> clone
                 <br>
             </div>
-            <div id="right">
+            <div id="header-right">
                 <a href=/about><span>About</span></a> 
             </div>
-            <hr />
        </div>
+        <hr />
 
-       <div id="disc">
+       <div class="disc">
             <a>List of assorted problems below</a>
        </div>
 
        <div class="questions">  
             <ul th:each="q : ${questions}">
-                <li>
+                <li class="question-list">
                     <a th:href="@{/question/title/{title}(title=${q.title})}" th:text="${q.title}">title</a>
                 </li>      
             </ul>

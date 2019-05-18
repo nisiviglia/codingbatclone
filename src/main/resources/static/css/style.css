@@ -5,7 +5,32 @@ h1 {
 h2 {
     color:#FF0000;
 }
- 
+
+body {
+
+    text-align: center;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.question-list {
+  list-style-type: none;
+}
+
+.workbox {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.testbox {
+  padding-left: 5px;
+}
+
 table {
     border-collapse: collapse;
 }
