@@ -7,7 +7,6 @@
    </head>
    <body>
        <div class="header">
-                <a th:href="@{#}" class="button">Run</a>
             <div id="header-left">
                 <a href=/><span style='font-size:200%;'>CodingBat</span></a> clone
                 <br>
@@ -18,6 +17,7 @@
        </div>
         <hr />
 
+       <div class="body">
        <div class="disc">
             <a>List of assorted problems below</a>
        </div>
@@ -35,6 +35,7 @@
             <a th:if="${not isLastPage == true}"
                 th:href="@{/index/?page={page}(page=${page}+1)}" class="button">Next</a>
        </p>
+   </div>
    </body>
     
 </html>

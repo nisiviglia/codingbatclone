@@ -69,6 +69,7 @@ public class IndexController{
     public String adminInsert(Model model){
     
         model.addAttribute("pageTitle", "Insert");
+        model.addAttribute("pageName", "insert");
         return "insertOrModify";
     }
 
@@ -80,6 +81,7 @@ public class IndexController{
             .orElseThrow( NotFoundException::new );
 
         model.addAttribute("pageTitle", "Modify");
+        model.addAttribute("pageName", "modify");
         model.addAttribute("question", question);
 
         return "insertOrModify";

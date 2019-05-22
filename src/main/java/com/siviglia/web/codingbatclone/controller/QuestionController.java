@@ -39,11 +39,8 @@ public class QuestionController{
     }
 
     @RequestMapping(value={"/question/insert"}, method= RequestMethod.GET)
-    public String insertQuestion(Question question, 
-            @RequestParam(value= "testCasesStr") String testCasesStr){
+    public String insertQuestion(Model model, Question question){
         
-        question.setTestCases( new ArrayList<String>( 
-                    Arrays.asList(testCasesStr.split(",")) ) );
         question.setDate( new Date().getTime() );
 
         try{
@@ -51,18 +48,12 @@ public class QuestionController{
         } catch(DataIntegrityViolationException e){
             return("redirect:/admin"); 
         }
-
+        
         return ("redirect:/admin");
     }
 
     @RequestMapping(value={"/question/modify"}, method= RequestMethod.GET)
-    public String modiftyQuestion(Question question, 
-            @RequestParam(value= "testCasesStr") String testCasesStr){
-        
-        //Fix string by removing whitespace and leading or trailing brackets
-        testCasesStr = testCasesStr.replaceAll("(^\\s*\\[*)|(\\]*\\s*$)", "");
-        question.setTestCases( new ArrayList<String>( 
-                    Arrays.asList(testCasesStr.split(",")) ) );
+    public String modiftyQuestion(Model model, Question question){
         
         //Get old question from db
         Question oldQuestion = questionRepository
@@ -73,7 +64,11 @@ public class QuestionController{
         question.setDate( oldQuestion.getDate() );
 
         //Update database
-        questionRepository.save(question);
+        try{
+            questionRepository.save(question);
+        } catch(DataIntegrityViolationException e){
+            return("redirect:/admin"); 
+        }
         
         return ("redirect:/admin");
     }

@@ -16,7 +16,7 @@
             </div>
        </div>
        <hr />
-
+       <div class="body">
        <div class="question-info">
             <h2 th:text="${question.title}"></h2>
             <br>
@@ -37,11 +37,21 @@
                             <th scope="col"><u></u></th>
                         </tr>
                     </thead>
-                    <tbody th:each="testCase : ${question.testCases}">
+                    <tbody>
                         <tr>
-                            <td th:text="${testCase}">&nbsp;</td>
-                            <td th:text="${testCase}">&nbsp;</td>
-                            <td th:text="${(testCase == testCase) ? 1 : 0}">&nbsp;</td>
+                            <td th:text="${question.testOutput1}">&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td th:text="${question.testOutput2}">&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td th:text="${question.testOutput3}">&nbsp;</td>
+                            <td>&nbsp;</td>
+                            <td>&nbsp;</td>
                         </tr>
                     </tbody>
                 </table>
@@ -49,7 +59,7 @@
 
         </div>
         <a th:href="@{#}" class="button">Run</a>
-
+        </div>
    </body>
     
 </html>

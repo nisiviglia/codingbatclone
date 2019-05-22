@@ -15,39 +15,71 @@ public class Question{
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Basic(optional = false)
-    @Column(name = "id",unique=true, nullable = false)
+    @Column(name = "id",unique = true, nullable = false)
     private long id;
 
     @Basic(optional = false)
     private long date;
 
     @Basic(optional = false)
-    @Column(name = "title",unique=true, nullable = false)
+    @Column(name = "title",unique = true, nullable = false)
     private String title;
 
     @Basic(optional = false)
     private String discription;
-
+    
     @Basic(optional = false)
+    private String functionName;
+
+    @Basic(optional = true)
     private String text;
 
     @Basic(optional = false)
-    private ArrayList<String> testCases;
+    private String testInput1;
+
+    @Basic(optional = false)
+    private String testInput2;
+
+    @Basic(optional = false)
+    private String testInput3;
+
+    @Basic(optional = false)
+    private String testOutput1;
+
+    @Basic(optional = false)
+    private String testOutput2;
+
+    @Basic(optional = false)
+    private String testOutput3;
 
     @Basic(optional = false)
     private boolean visible = true;
 
     public Question() {}
     
-    public Question(long date, String title, String discription, 
-            String text, ArrayList<String> testCases, boolean visible){
+    public Question(
+            long date, 
+            String title, 
+            String discription, 
+            String text, 
+            String testInput1,
+            String testInput2,
+            String testInput3,
+            String testOutput1,
+            String testOutput2,
+            String testOutput3,
+            boolean visible){
         
         this.date = date;
         this.title = title;
         this.discription = discription;
         this.text = text;
-        this.testCases = testCases;
+        this.testInput1 = testInput1;
+        this.testInput2 = testInput2;
+        this.testInput3 = testInput3;
+        this.testOutput1 = testOutput1;
+        this.testOutput2 = testOutput2;
+        this.testOutput3 = testOutput3;
         this.visible = visible;
     }
     
@@ -83,6 +115,14 @@ public class Question{
         return discription;
     }
     
+    public String getFunctionName(){
+        return functionName;
+    }
+
+    public void setFunctionName(String functionName){
+        this.functionName = functionName;
+    }
+
     public void setText(String text){
         this.text = text;
     }
@@ -91,13 +131,53 @@ public class Question{
         return text;
     }
 
-    public void setTestCases(ArrayList<String> testCases){
-        this.testCases = testCases; 
+    public String getTestInput1(){
+        return testInput1;
     }
 
-    public ArrayList<String> getTestCases(){
-        return testCases;
+    public void setTestInput1(String testInput1){
+        this.testInput1 = testInput1;
     }
+
+    public String getTestInput2(){
+        return testInput2;
+    }
+
+    public void setTestInput2(String testInput2){
+        this.testInput2 = testInput2;
+    }
+
+    public String getTestInput3(){
+        return testInput3;
+    }
+
+    public void setTestInput3(String testInput3){
+        this.testInput3 = testInput3;
+    }
+
+    public void setTestOutput1(String testOutput1){
+        this.testOutput1 = testOutput1;
+    }
+
+    public String getTestOutput1(){
+        return testOutput1;
+    }   
+
+    public void setTestOutput2(String testOutput2){
+        this.testOutput2 = testOutput2;
+    }
+
+    public String getTestOutput2(){
+        return testOutput2;
+    }   
+
+    public void setTestOutput3(String testOutput3){
+        this.testOutput3 = testOutput3;
+    }
+
+    public String getTestOutput3(){
+        return testOutput3;
+    }   
 
     public void setVisible(boolean visible){
         this.visible = visible;
@@ -111,8 +191,8 @@ public class Question{
     public String toString(){
 
         return String.format(
-                "Post[id=%s, date='%d', title='%s', discription='%s', text='%s', testCases=%s, visible=%b]", 
-                id, date, title, discription, text, testCases, visible);
+                "Post[id=%s, date='%d', title='%s', discription='%s', functionName='%s', text='%s', testInput1=%s, testInput2=%s, testInput3=%s, testOutput1=%s, testOutput2=%s, testOutput3=%s,isible=%b]", 
+                id, date, title, discription, functionName, text, testInput1, testInput2, testInput3, testOutput1, testOutput2, testOutput3, visible);
 
 }
 

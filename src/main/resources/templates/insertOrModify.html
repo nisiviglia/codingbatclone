@@ -6,29 +6,59 @@
     <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"/>
 </head>
 <body>
+<div class="body">
     <h1 th:text="${pageTitle}"></h1>
-<form class="QuestionForm" action="/question/modify">
+    <form class="QuestionForm" th:action="@{/question/{p}(p=${pageName})}">
 
-    <input th:value="${question?.id}" type="hidden" name="id" />
+    <input th:if="${question?.id != null}"  th:value="${question?.id}" type="hidden" name="id" />
 
-	<p>Title:<br />
+	Title:<br />
     <input th:value="${question?.title}" maxlength="255" autocomplete="off" name="title" size="50" type="text" /><br />
 
 	Discription:<br />
 	<input th:value="${question?.discription}" maxlength="255" autocomplete="off" name="discription" size="50" type="text" /><br />
 
+	Function Name:<br />
+	<input th:text="${question?.functionName}" maxlength="255" autocomplete="off" name="functionName" size="50" type="text" ></textarea><br />
+
 	Code:<br />
 	<textarea th:text="${question?.text}" cols="50" autocomplete="off" name="text" rows="10"></textarea><br />
 
-	Test Cases: <span style="font-size:9px;">(seperate by commas)</span><br />
-    <input th:value="${question?.testCases}" maxlength="255" autocomplete="off" name="testCasesStr" size="50" type="text" /><br />
+	Test Cases:<br />
+    <table class="test-cases" border="1" cellpadding="1" cellspacing="1">
+        <thead>
+            <tr>
+                <th scope="col"><u></u></th>
+                <th scope="col"><u>Input</u></th>
+                <th scope="col"><u>Output</u></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1.</td>
+                <td><input th:value="${question?.testInput1}" maxlength="255" autocomplete="off" name="testInput1" size="50" type="text" /><br /></td>
+                <td><input th:value="${question?.testOutput1}" maxlength="255" autocomplete="off" name="testOutput1" size="50" type="text" /><br /></td>
+            </tr>
+            <tr>
+                <td>2.</td>
+                <td><input th:value="${question?.testInput2}" maxlength="255" autocomplete="off" name="testInput2" size="50" type="text" /><br /></td>
+                <td><input th:value="${question?.testOutput2}" maxlength="255" autocomplete="off" name="testOutput2" size="50" type="text" /><br /></td>
+            </tr>
+            <tr>
+                <td>3.</td>
+                <td><input th:value="${question?.testInput3}" maxlength="255" autocomplete="off" name="testInput3" size="50" type="text" /><br /></td>
+                <td><input th:value="${question?.testOutput3}" maxlength="255" autocomplete="off" name="testOutput3" size="50" type="text" /><br /></td>
+            </tr>
+        </tbody>
+    </table>
 
 	Visible:<br />
-	<input th:checked="${question?.visible}" name="visible" autocomplete="off" type="checkbox" />&nbsp;</p>
+	<input th:checked="${question?.visible}" name="visible" autocomplete="off" type="checkbox" />&nbsp;
 
-	<p><input type="submit" value="Submit"/></p>
+	<input type="submit" class="submit-button" value="Submit"/>
 </form>
 
 <p>&nbsp;</p>
+</div>
 </body>
 </html>

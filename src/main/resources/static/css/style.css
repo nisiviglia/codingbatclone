@@ -6,9 +6,11 @@ h2 {
     color:#FF0000;
 }
 
-body {
-
-    text-align: center;
+.body {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
 }
 
 .header {
@@ -37,6 +39,24 @@ table {
  
 table th, table td {
     padding: 5px;
+}
+
+.submit-button {
+    width: 10%;
+    align-self: center;
+}
+
+.QuestionForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.test-cases {
+    width: 50%;
+}
+
+.link-button {
+    size: 25px;
 }
 
 .button {

@@ -7,6 +7,7 @@
     <script th:src="@{/js/admin.js}"></script>
 </head>
 <body>
+<div class="body">
 <h1>Admin</h1>
 
 <table border="1" cellpadding="1" cellspacing="1" style="width: 95%;">
@@ -16,8 +17,14 @@
 			<th scope="col"><u>Date</u></th>
 			<th scope="col"><u>Title</u></th>
 			<th scope="col"><u>Discription</u></th>
+			<th scope="col"><u>Function Name</u></th>
 			<th scope="col"><u>Text</u></th>
-			<th scope="col"><u>Test Cases</u></th>
+			<th scope="col"><u>Test Input 1 </u></th>
+			<th scope="col"><u>Test Output 1 </u></th>
+			<th scope="col"><u>Test Input 2 </u></th>
+			<th scope="col"><u>Test Output 2 </u></th>
+			<th scope="col"><u>Test Input 3 </u></th>
+			<th scope="col"><u>Test Output 3 </u></th>
 			<th scope="col"><u>Visible</u></th>
 			<th scope="col">Options</th>
 		</tr>
@@ -28,8 +35,14 @@
 			<td th:text="${#dates.formatISO(q.date)}">&nbsp;</td>
 			<td th:text="${q.title}">&nbsp;</td>
 			<td th:text="${q.discription}">&nbsp;</td>
+			<td th:text="${q.functionName}">&nbsp;</td>
 			<td th:text="${q.text}">&nbsp;</td>
-			<td th:text="${q.testCases}">&nbsp;</td>
+			<td th:text="${q.testInput1}">&nbsp;</td>
+			<td th:text="${q.testOutput1}">&nbsp;</td>
+			<td th:text="${q.testInput2}">&nbsp;</td>
+			<td th:text="${q.testOutput2}">&nbsp;</td>
+			<td th:text="${q.testInput3}">&nbsp;</td>
+			<td th:text="${q.testOutput3}">&nbsp;</td>
 			<td th:text="${q.visible}">&nbsp;</td>
             <td>
                 <a th:href="@{/question/delete/?title={title}(title=${q.title})}" class="button">X</a>
@@ -51,6 +64,7 @@
 </p>
 
 <p>&nbsp;</p>
+</div>
 </body>
 </html>
 
