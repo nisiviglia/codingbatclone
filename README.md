@@ -1,6 +1,6 @@
 # codingbatclone
 A very simple, no frills, clone of the popular website [codingbat](https://codingbat.com/) written in Java.
-This will allow you to complete programming puzzles written in Python.
+This will allow you to complete programming puzzles written in Python. 
 
 ## Packages Used
 1. Java Spring Boot
@@ -28,3 +28,6 @@ This will allow you to complete programming puzzles written in Python.
 
 ### About
 ![about](images/about.jpg)
+
+
+This project is meant for demonstration only, *do not* run on a WAN facing server. It has zero security and will run any code given to it by the user. I only created this to play-around with Java Spring.
