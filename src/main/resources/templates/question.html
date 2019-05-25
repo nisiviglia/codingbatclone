@@ -24,42 +24,35 @@
        </div>
 
         <div class="workbox">
-            <div class="codebox">
-                <textarea cols="50" id="QuestionText" rows="10" th:text="${question.text}"></textarea>        
-            </div>
+            <form class="codebox" th:action="@{/question/run/{t}(t=${title})}">
+                <textarea cols="50" id="QuestionText" name="QuestionText" rows="10" th:text="${question.text}"></textarea>        
+                <input type="submit" class="submit-button" value="Run"/>
+            </form>
 
-            <div class="testbox">
+            <div th:if="${question?.RunOutput1 != null}" class="testbox">
                 <table border="1" cellpadding="1" cellspacing="1" style="width: 35;">
                     <thead>
                         <tr>
                             <th scope="col"><u>Expected</u></th>
                             <th scope="col"><u>Run</u></th>
-                            <th scope="col"><u></u></th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
                             <td th:text="${question.testOutput1}">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
+                            <td th:text="${question?.RunOutput1}">&nbsp;</td>
                         </tr>
                         <tr>
                             <td th:text="${question.testOutput2}">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
+                            <td th:text="${question?.RunOutput2}">&nbsp;</td>
                         </tr>
                         <tr>
                             <td th:text="${question.testOutput3}">&nbsp;</td>
-                            <td>&nbsp;</td>
-                            <td>&nbsp;</td>
+                            <td th:text="${question?.RunOutput3}">&nbsp;</td>
                         </tr>
                     </tbody>
                 </table>
             </div>
-
-        </div>
-        <a th:href="@{#}" class="button">Run</a>
-        </div>
    </body>
     
 </html>

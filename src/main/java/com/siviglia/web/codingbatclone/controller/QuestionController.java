@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import com.siviglia.web.codingbatclone.model.Question;
 import com.siviglia.web.codingbatclone.repository.QuestionRepository;
 import com.siviglia.web.codingbatclone.exception.NotFoundException;
+import com.siviglia.web.codingbatclone.util.RunPython;
 
 @Controller
 public class QuestionController{
@@ -94,4 +95,23 @@ public class QuestionController{
 
         return("redirect:/admin"); 
     }
+
+    @RequestMapping(value={"/question/run/{title}"}, method= RequestMethod.GET)
+    public String runQuestion(Model model, 
+            @PathVariable(value= "title") String title, 
+            @RequestParam(value= "QuestionText") String text){
+    
+        Question question = questionRepository
+            .findFirstByTitle( title )
+            .orElseThrow( NotFoundException::new );
+        
+        question.setText(text);
+
+        RunPython python = new RunPython();
+        python.run(question); 
+
+        model.addAttribute("question", question);
+        return("question");    
+    }
+
 }

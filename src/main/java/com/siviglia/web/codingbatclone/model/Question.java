@@ -6,6 +6,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Basic;
 import javax.persistence.Column;
+import javax.persistence.Transient;
 
 import java.util.List;
 import java.util.ArrayList;
@@ -51,6 +52,15 @@ public class Question{
 
     @Basic(optional = false)
     private String testOutput3;
+
+    @Transient
+    private String runOutput1;
+
+    @Transient
+    private String runOutput2;
+
+    @Transient
+    private String runOutput3;
 
     @Basic(optional = false)
     private boolean visible = true;
@@ -178,6 +188,48 @@ public class Question{
     public String getTestOutput3(){
         return testOutput3;
     }   
+
+    public String getRunOutput1(){
+        return runOutput1;
+    }
+
+    public void setRunOutput1(String runOutput){
+        this.runOutput1 = runOutput;
+    }
+
+    public String getRunOutput2(){
+        return runOutput2;
+    }
+
+    public void setRunOutput2(String runOutput){
+        this.runOutput2 = runOutput;
+    }
+
+    public String getRunOutput3(){
+        return runOutput3;
+    }
+
+    public void setRunOutput3(String runOutput){
+        this.runOutput3 = runOutput;
+    }
+
+    public String[] getTestInputArray(){
+        return new String[]{testInput1, testInput2, testInput3};
+    }
+
+    public String[] getTestOutputArray(){
+        return new String[]{testOutput1, testOutput2, testOutput3};
+    }
+
+    public String[] getRunOutputArray(){
+        return new String[]{runOutput1, runOutput2, runOutput3};
+    }
+
+    public void setRunOutputArray(String[] runOutputArray){
+        runOutput1 = runOutputArray[0];
+        runOutput2 = runOutputArray[1];
+        runOutput3 = runOutputArray[2];
+    }
 
     public void setVisible(boolean visible){
         this.visible = visible;
