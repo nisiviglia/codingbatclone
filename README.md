@@ -2,6 +2,11 @@
 A very simple, no frills, clone of the popular website [codingbat](https://codingbat.com/) written in Java.
 This will allow you to complete programming puzzles written in Python. 
 
+## How To Run
+```
+mvn spring-boot:run -Dserver.port=5000
+```
+
 ## Packages Used
 1. Java Spring Boot
 2. Thymeleaf
